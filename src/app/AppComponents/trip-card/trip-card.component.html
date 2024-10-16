@@ -1,0 +1,23 @@
+<div class="trip-card shadow rounded-4 p-3 d-flex w-100 justify-content-between mt-5">
+    <div class="title">
+        <div class="fw-medium m-3 fs-4">Banglore Office Visit</div>
+        <div class="text-color m-3 fs-4">$180</div>
+    </div>
+    <div class="status">
+        <div class="fw-light text-color m-3 fs-5">July 16, 2024 - July 20, 2024</div>
+        <mat-icon class="w-100 text-end pending" *ngIf="status=='pending'">pending_actions</mat-icon>
+        <mat-icon class="w-100 text-end approved" *ngIf="status=='approved'">task_alt</mat-icon>
+    </div>
+</div>
+
+<div class="trip-card shadow rounded-4 p-3 d-flex w-100 justify-content-between mt-5">
+    <div class="title">
+        <div class="fw-medium m-3 fs-4">Flight To Banglore</div>
+        <div class="text-color m-3 fs-4">$200</div>
+    </div>
+    <div class="status">
+        <div class="fw-light text-color m-3 fs-5">July 16, 2024 - July 20, 2024</div>
+        <mat-icon class="w-100 text-end pending" *ngIf="status=='pending'">pending_actions</mat-icon>
+        <mat-icon class="w-100 text-end approved" *ngIf="status=='approved'">task_alt</mat-icon>
+    </div>
+</div>

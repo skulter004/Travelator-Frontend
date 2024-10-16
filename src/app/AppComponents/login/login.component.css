@@ -1,0 +1,38 @@
+span{
+  color:  rgb(77, 77, 77);
+}
+.login-info{
+  form{
+    gap: 20px;
+    input{
+      border: none;
+      background-color: #f1f3f4;
+    }
+    input::placeholder{
+      font-size: small;
+      font-weight: bold;
+    }
+    button{
+      background-color: #f1f3f4;
+      color: rgb(77, 77, 77);
+      font-size: small;
+      font-weight: bold;
+    } 
+  }
+}
+.login-img{
+  background-color:#f1f3f4;
+  background-image: url('/assets/Images/displaybg.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  position: relative;
+  img{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    mix-blend-mode: multiply;
+  }
+}
+.login-head{
+  width: fit-content;
+}

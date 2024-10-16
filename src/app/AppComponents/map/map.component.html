@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<mat-icon
+    class="map-icon"
+    (click)="toggleMap()"
+    title="Click to open map"
+  >location_on</mat-icon>
+
+  <!-- Conditional display of map when icon is clicked -->
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="searchInput"
+      (input)="searchLocation()"
+      class="form-control mt-3"
+      placeholder="Search for a location"
+    />
+    <ul *ngIf="autocompleteResults.length > 0" class="autocomplete-results">
+      <li
+        *ngFor="let place of autocompleteResults"
+        (click)="selectLocation(place)"
+        class="autocomplete-item"
+      >
+        {{ place.description }}
+      </li>
+    </ul>
+
+    <div id="map" style="height: 500px; width: 100%;"></div>
+  </div>

@@ -1,0 +1,11 @@
+.trip-card{
+    background-color: #fff;
+}
+.status{
+    .pending{
+        color: #FAC638;
+    }
+    .approved{
+        color: rgb(14, 165, 9);
+    }
+}

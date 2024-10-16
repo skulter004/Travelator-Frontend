@@ -1,0 +1,40 @@
+<div class="w-100 h-100 d-flex flex-column align-items-center overflow-hidden slide-in">
+    <div class="trips-header fw-bold fs-1 mt-5 mb-5 w-75 slide-in">My bookings</div>
+    <div class="bookings w-75 d-flex slide-in overflow-hidden">
+            <div class="recent-bookings w-50 me-5">
+                <div class="fw-medium fs-3 slide-in animation-delay-1">Today</div>
+                <div class="booking-info mt-4 w-100 shadow rounded-4 p-3 slide-in animation-delay-2">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center"> 
+                            <mat-icon class="rounded-4 me-3 location-icon">location_on</mat-icon>
+                            <div class="location-time">
+                                <div class="fw-medium fs-5">
+                                    Sector 62 
+                                </div>
+                                <div class="text-color fs-5">12:00</div>
+                            </div>
+                        </div>
+                        <mat-icon class="text-color">arrow_forward</mat-icon>
+                    </div>
+                    <div class="d-flex align-items-center mt-2 justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="rounded-circle driver-img me-3"><img class="rounded-circle" src="assets/Images/gutkamukesh.jfif" alt=""></div>
+                            <div class="location-time">
+                                <div class="fw-medium fs-5">
+                                    Gutka Mukesh +91 0987654321 
+                                </div>
+                                <div class="text-color fs-5">Swift Dezire Rj145294</div>
+                            </div>
+                        </div>
+                        <mat-icon class="text-color">phone_in_talk</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="future-bookings w-50">
+                <div class="fw-medium fs-3 d-flex align-items-center slide-in animation-delay-1"><mat-icon class="rounded-4 me-3">calendar_month</mat-icon>Calender</div>
+                <div class="booking-info mt-4 w-100 slide-in animation-delay-2">
+                    <app-calendar></app-calendar>
+                </div>
+            </div>
+    </div>
+</div>

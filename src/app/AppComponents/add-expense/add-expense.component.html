@@ -1,0 +1,36 @@
+<div class="w-100 d-flex justify-content-center align-items-start overflow-scroll">
+<div class="add-expense w-75 pop-out">
+    <div class="expense-head fs-1 fw-bold mt-5">
+        Expense Submission
+    </div>
+    <div class="fw-bold fs-4 mt-5 mb-5">Expense Details</div>
+
+    <form [formGroup]="expenseForm" class="d-flex flex-column mt-4">
+        <label for="trip" class="fw-medium fs-4">Choose Trip</label>
+            <select class="form-control form-select form-select-lg rounded-4 form-control fs-4 p-4 mb-4 text-color" aria-label="Large select example">
+                <option>Choose a trip associated with the expense.</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+        <label for="category" class="fw-medium fs-4">Expense Category</label>
+        <input formControlName="category" class="rounded-4 form-control fs-4 p-4 mb-4" type="text" name="category" placeholder="Type Of Expense Eg. Accomodation, Travel, Flights Etc.">
+        <label for="amount" class="fw-medium fs-4">Amount</label>
+        <input formControlName="amount" class="rounded-4 form-control fs-4 p-4 mb-4" type="text" name="amount" id="" placeholder="$100">
+        <label for="amount" class="fw-medium fs-4">Description</label>
+        <textarea formControlName="description" class="rounded-4 form-control fs-4 p-4 mb-4"  placeholder="Description of expense">Description of Expense
+        </textarea>
+        <label for="reciept" class="fw-bold fs-4">Receipt</label>
+        <div class="upload-box p-5 text-center rounded-4 w-100">
+            <label for="file-upload" class="custom-file-upload">
+              <div class="upload-text">
+                <p class="font-weight-bold mb-3">Upload Receipt</p>
+                <button class="btn btn-light upload-btn">Upload</button>
+                <input id="file-upload" formControlName="receipt" type="file" class="file-input">
+              </div>
+            </label>
+        </div>
+    </form>    
+    <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0">Submit</button>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.profile-img{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(231, 135, 135);
+}
+mat-icon{
+    padding: 15px;
+    width: fit-content;
+    height: fit-content;
+    background-color: #f1f3f4;
+  }
