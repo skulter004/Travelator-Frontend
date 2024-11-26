@@ -1,0 +1,14 @@
+<div class="fs-4 fw-medium mb-4 slide-in animation-delay-2">
+    Available Cabs
+</div>
+<div class=" slide-in animation-delay-2">
+    <div class="cab-card d-flex w-25 align-items-center shadow rounded-4 p-3 me-4 mb-4" *ngFor="let cab of availableCabs">
+        <div class="img rounded-circle me-2">
+
+        </div>
+        <div class="cab-info w-100 d-flex flex-column justify-content-between h-100">
+            <div class="d-flex justify-content-between align-items-center h-50"><div class="fs-5">{{cab.driverName}}</div><div class="d-flex align-items-center text-color"><mat-icon>person</mat-icon> <span class="text-color">{{cab.remainingCapacity}}/{{cab.totalCapacity}}</span></div></div>
+            <div class="d-flex justify-content-between align-items-center h-50"> <div class="fs-5 text-color">{{cab.cabName}}</div> <button class="rounded btn-primary" (click)="assignCab(cab)">Assign Cab</button></div>
+        </div>
+    </div>
+</div>

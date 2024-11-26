@@ -10,7 +10,11 @@ import { BookCabComponent } from './AppComponents/book-cab/book-cab.component';
 import { ProfileComponent } from './AppComponents/profile/profile.component';
 import { MyBookingsComponent } from './AppComponents/my-bookings/my-bookings.component';
 import { AuthGuard } from './Services/auth.guard';
-import { TravelRequestComponent } from './AppComponents/travel-request/travel-request.component';
+import { TravelRequestComponent } from './AppComponents/request-travel/travel-request.component';
+import { RequestsComponent } from './AppComponents/requests/requests.component';
+import { CabRequestsComponent } from './AppComponents/cab-requests/cab-requests.component';
+import { TravelRequestsComponent } from './AppComponents/travel-requests/travel-requests.component';
+import { AssignCabComponent } from './AppComponents/assign-cab/assign-cab.component';
 
 const routes: Routes = [
   {
@@ -21,7 +25,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'login', pathMatch: 'full' }
     ]
   }, 
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }, 
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]  }, 
   { path: 'dashboard/addexpense', component: AddExpenseComponent, canActivate: [AuthGuard] }, 
   { path: 'dashboard/travelrequest', component: TravelRequestComponent, canActivate: [AuthGuard] }, 
   { path: 'expenses', component: ExpensesComponent, canActivate: [AuthGuard] },
@@ -29,7 +33,18 @@ const routes: Routes = [
   { path: 'dashboard/bookcab', component: BookCabComponent , canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent , canActivate: [AuthGuard]}, 
   { path: 'mybookings', component: MyBookingsComponent , canActivate: [AuthGuard]} ,
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'requests', component: RequestsComponent,
+    children: [
+      { path: 'travel', component: TravelRequestsComponent},
+      { path: 'cab', component: CabRequestsComponent, 
+        children: [          
+      { path: 'assign', component: AssignCabComponent},
+        ]
+      },
+    ]
+     , canActivate: [AuthGuard]},
+  { path : 'cabRequests', component: CabRequestsComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./trips.component.css']
 })
 export class TripsComponent {
-  status: string = 'pending';
+  status: string = 'Requested';
 
   setStatus(status: string){
     this.status = status;

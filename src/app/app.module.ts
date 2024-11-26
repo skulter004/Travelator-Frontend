@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './AppComponents/navbar/navbar.component';
@@ -21,7 +21,14 @@ import { MapComponent } from './AppComponents/map/map.component';
 import { MyBookingsComponent } from './AppComponents/my-bookings/my-bookings.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './AppComponents/calendar/calendar.component';
-import { TravelRequestComponent } from './AppComponents/travel-request/travel-request.component';
+import { TravelRequestComponent } from './AppComponents/request-travel/travel-request.component';
+import { RequestsComponent } from './AppComponents/requests/requests.component';
+import { AuthInterceptor } from './Interceptor/Auth-interceptor';
+import { CabRequestsComponent } from './AppComponents/cab-requests/cab-requests.component';
+import { TravelRequestsComponent } from './AppComponents/travel-requests/travel-requests.component';
+import { AssignCabComponent } from './AppComponents/assign-cab/assign-cab.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NotificationService } from './Services/notification.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +46,10 @@ import { TravelRequestComponent } from './AppComponents/travel-request/travel-re
     MyBookingsComponent,
     CalendarComponent,
     TravelRequestComponent,
+    RequestsComponent,
+    CabRequestsComponent,
+    TravelRequestsComponent,
+    AssignCabComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +60,18 @@ import { TravelRequestComponent } from './AppComponents/travel-request/travel-re
     FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-    FullCalendarModule
+    FullCalendarModule, 
+    ToastrModule.forRoot({
+      timeOut: 3000, 
+      positionClass: 'toast-top-right', 
+      preventDuplicates: true, 
+    }),
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, 
+      useClass: AuthInterceptor, 
+      multi: true
+  }, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,15 +7,15 @@
 
         <form [formGroup]="cabForm" class="d-flex flex-column mt-4">
             <label for="pickup" class="fw-medium fs-4">Pick up location</label>
-            <input formControlName="pickup" class="rounded-4 form-control fs-4 p-4 mb-4" type="text" name="pickup" placeholder="Enter an address">
+            <input formControlName="pickUp" class="rounded-4 form-control fs-4 p-4 mb-4" type="text" name="pickup" placeholder="Enter an address">
             <label for="dropoff" class="fw-medium fs-4">Drop off location</label>
-            <input formControlName="dropoff" class="rounded-4 form-control fs-4 p-4 mb-4" type="text" name="dropoff" id="" placeholder="Enter an address">
+            <input formControlName="dropOff" class="rounded-4 form-control fs-4 p-4 mb-4" type="text" name="dropoff" id="" placeholder="Enter an address">
             <label for="time" class="fw-medium fs-4">Pick up time</label>
             <input formControlName="time" type="datetime-local" class="rounded-4 form-control fs-4 p-4 mb-4">
         </form>
         <div class="d-flex align-items-center form-switch">
-            <input type="checkbox" class="form-check-input"> <div class=" ms-3 text-color fs-5">request monthly ride for this time and location</div>
+            <input type="checkbox" class="form-check-input" formControlName="monthlyRequest"> <div class=" ms-3 text-color fs-5">request monthly ride for this time and location</div>
         </div>
 
-        <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0">Request Booking</button>
+        <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0" (click)="requestBooking()">Request Booking</button>
 </div>

@@ -24,7 +24,7 @@ export class LoginComponent {
       (response: any) => {        
         console.log(response);
         localStorage.setItem('token', response.token);
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["/profile"]);
         this.authService.setLoginStatus(true);
       },
       error => {    

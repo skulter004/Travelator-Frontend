@@ -23,11 +23,6 @@ body {
 .btn-light{
     background-color: #f1f3f4;
 }
-.btn:focus {
-  background-color: #8095fa;
-  border: none;
-  color: #fff;
-}
 .text-color {
   color: #6e8287;
 }
@@ -74,4 +69,22 @@ body {
   }  
   .pop-out {
     animation: popOut 0.6s ease-in-out forwards;
+  }
+  ::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height for horizontal scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Track color */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar thumb color */
+    border-radius: 10px; /* Rounded corners for the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
   }

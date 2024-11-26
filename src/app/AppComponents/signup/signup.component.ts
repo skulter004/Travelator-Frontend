@@ -25,7 +25,7 @@ export class SignupComponent {
     this.authService.register(this.signUpForm.value).subscribe(
       response => {
         console.log('User registered', response);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['auth/login']);
         this.authService.setLoginStatus(true);
         localStorage.setItem('token', response.token);        
       },

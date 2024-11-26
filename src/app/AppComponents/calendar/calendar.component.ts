@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 @Component({
@@ -8,6 +8,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 })
 export class CalendarComponent {
   @ViewChild('calendar') calendarComponent: any;
+  @Output() dateClicked = new EventEmitter<Date>();
   
   calendarOptions: any;
 
@@ -17,15 +18,15 @@ export class CalendarComponent {
       initialView: 'dayGridMonth',
       events: [
         { title: 'Event 1', date: '2024-10-15' }, 
-        { title: 'Event 2', date: '2024-10-20' }, 
+        { title: 'Event 2', date: '2024-11-20' }, 
       ],
-      dateClick: this.handleDateClick.bind(this), 
+      dateClick: (info:any) => this.handleDateClick(new Date(info.dateStr)), 
       eventClick: this.handleEventClick.bind(this),
     };
   }
 
-  handleDateClick(arg: any) {
-    alert('Date: ' + arg.dateStr);
+  handleDateClick(date: Date) {
+    this.dateClicked.emit(date);
   }
 
   handleEventClick(arg: any) {

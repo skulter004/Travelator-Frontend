@@ -1,0 +1,8 @@
+
+
+.request-card{
+    height: 150px;
+    mat-icon{
+        align-self: flex-end;
+    }
+}

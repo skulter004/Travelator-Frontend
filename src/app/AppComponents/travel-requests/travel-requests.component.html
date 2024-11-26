@@ -1,0 +1,30 @@
+<div class="h-100">
+  <div class="trip-options d-flex justify-content-center mt-5 slide-in animation-delay-2">
+    <div
+      class="trip-status fw-bold text-color fs-5 p-4"
+      [ngClass]="{ 'active-option': isActive('Requested') }"
+      (click)="setStatus('Requested')"
+    >
+      New Requests
+    </div>
+
+    <div
+      class="trip-status fw-bold text-color fs-5 p-4"
+      [ngClass]="{ 'active-option': isActive('Approved') }"
+      (click)="setStatus('Approved')"
+    >
+      Approved
+    </div>
+
+    <div
+      class="trip-status fw-bold text-color fs-5 p-4"
+      [ngClass]="{ 'active-option': isActive('Review') }"
+      (click)="setStatus('Review')"
+    >
+      Director Approval
+    </div>
+  </div>
+  <div class="h-100 p-3" style="overflow-y: auto;">
+    <app-trip-card class="slide-in animation-delay-3" [status]="status"></app-trip-card>
+  </div>
+</div>

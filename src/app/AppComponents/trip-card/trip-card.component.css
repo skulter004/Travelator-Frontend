@@ -2,10 +2,19 @@
     background-color: #fff;
 }
 .status{
+    min-width: fit-content;
     .pending{
         color: #FAC638;
     }
     .approved{
         color: rgb(14, 165, 9);
+    }
+}
+.applicant{
+    min-width: fit-content;
+    .applicant-img{
+        min-width: 80px;
+        min-height: 80px;
+        background-color: greenyellow;        
     }
 }
