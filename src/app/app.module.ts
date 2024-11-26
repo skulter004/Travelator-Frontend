@@ -23,12 +23,13 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './AppComponents/calendar/calendar.component';
 import { TravelRequestComponent } from './AppComponents/request-travel/travel-request.component';
 import { RequestsComponent } from './AppComponents/requests/requests.component';
-import { AuthInterceptor } from './Interceptor/Auth-interceptor';
+import { AuthInterceptor } from './Shared/Interceptor/Auth-interceptor';
 import { CabRequestsComponent } from './AppComponents/cab-requests/cab-requests.component';
 import { TravelRequestsComponent } from './AppComponents/travel-requests/travel-requests.component';
 import { AssignCabComponent } from './AppComponents/assign-cab/assign-cab.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from './Services/notification.service';
+import { EmptyComponent } from './AppComponents/empty/empty.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { NotificationService } from './Services/notification.service';
     CabRequestsComponent,
     TravelRequestsComponent,
     AssignCabComponent,
+    EmptyComponent,
   ],
   imports: [
     BrowserModule,

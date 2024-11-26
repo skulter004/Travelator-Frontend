@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ export class SignupComponent {
   
   signUpForm!: FormGroup;
   
-  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder, private toastr: ToastrService) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
@@ -31,6 +32,7 @@ export class SignupComponent {
       },
       error => {
         console.error('Registration failed', error);
+        this.toastr.error(error.error[0].description, 'Error');
         this.authService.setLoginStatus(false);
       }
     );

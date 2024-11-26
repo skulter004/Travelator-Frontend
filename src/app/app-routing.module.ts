@@ -9,7 +9,7 @@ import { TripsComponent } from './AppComponents/trips/trips.component';
 import { BookCabComponent } from './AppComponents/book-cab/book-cab.component';
 import { ProfileComponent } from './AppComponents/profile/profile.component';
 import { MyBookingsComponent } from './AppComponents/my-bookings/my-bookings.component';
-import { AuthGuard } from './Services/auth.guard';
+import { AuthGuard } from './Shared/Guard/auth.guard';
 import { TravelRequestComponent } from './AppComponents/request-travel/travel-request.component';
 import { RequestsComponent } from './AppComponents/requests/requests.component';
 import { CabRequestsComponent } from './AppComponents/cab-requests/cab-requests.component';
@@ -42,7 +42,8 @@ const routes: Routes = [
         ]
       },
     ]
-     , canActivate: [AuthGuard]},
+     , canActivate: [AuthGuard],
+    data: {roles: ['Admin', 'Manager', 'Director']}},
   { path : 'cabRequests', component: CabRequestsComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: 'auth/login', pathMatch: 'full'}
 ];

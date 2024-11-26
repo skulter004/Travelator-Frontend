@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -44,7 +45,17 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');  // Remove the token from localStorage
-    this.setLoginStatus(false);  // Update the loggedIn status
+    localStorage.removeItem('token'); 
+    this.setLoginStatus(false);  
+  }
+
+  getUserRoles(): string[] {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      const payload = JSON.parse(atob(token.split('.')[1])); 
+      return payload.roles || [];      
+    }
+    return [];
   }
 }

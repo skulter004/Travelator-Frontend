@@ -10,6 +10,7 @@ import { TripsService } from 'src/app/Services/trips.service';
 })
 export class TripCardComponent implements OnInit, OnChanges {
   @Input() status!: string;
+  @Input() enableOption: boolean = false;
   travelRequests: TravelRequest[]  = [];
   constructor(private tripService: TripsService, private toastr: ToastrService){}
   ngOnInit() {

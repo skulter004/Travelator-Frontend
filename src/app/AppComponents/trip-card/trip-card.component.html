@@ -11,18 +11,18 @@
     <div class="text-color m-3 fs-5 fw-light">{{ request.purpose }}</div>
     <div class="text-color m-3 fs-4">${{ request.cost }}</div>
   </div>
-  <div class="status">
+  <div class="status    ">
     <div class="fw-lighter text-color m-3 fs-5">
       {{ request.startDate | date : "dd/MM/yyyy" }} -
       {{ request.endDate | date : "dd/MM/yyyy" }}
     </div>
-    <mat-icon class="w-100 text-end pending" *ngIf="status == 'Requested'"
+    <mat-icon class="w-100 text-end pending" *ngIf="status == 'Requested' || status == 'Review'"
       >pending_actions</mat-icon
     >
     <mat-icon class="w-100 text-end approved" *ngIf="status == 'Approved'"
       >task_alt</mat-icon
     >
-    <div class="trip-actions">
+    <div class="trip-actions d-flex justify-content-end" *ngIf="enableOption">
       <button
         class="btn btn-success me-2"
         (click)="approveBooking(request.id, i)"
@@ -42,7 +42,4 @@
     </div>
   </div>
 </div>
-<div class="d-flex align-items-center flex-column" *ngIf="travelRequests.length == 0">
-    <img class="" src="assets/Images/EmptySpace.png" alt="">
-    <div class="fs-4 fw-light">No bookings right now</div>
-</div>
+<app-empty *ngIf="travelRequests.length == 0" [msg]="'No trips currently'"></app-empty>

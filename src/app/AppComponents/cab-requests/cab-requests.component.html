@@ -28,4 +28,5 @@
         </div>
     </div>  
 </div>
+<app-empty *ngIf="cabRequests.length == 0" [msg]="'No requests currently'"></app-empty>
 <router-outlet></router-outlet>
