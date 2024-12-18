@@ -18,6 +18,6 @@ export class RequestsComponent {
     });
   }
   navigateTo(route: string) {
-    this.router.navigate(['requests', route]);
+    this.router.navigate(['requests', route]);  
   }
 }
