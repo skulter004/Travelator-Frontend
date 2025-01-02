@@ -16,7 +16,6 @@ import { TripsComponent } from './AppComponents/trips/trips.component';
 import { TripCardComponent } from './AppComponents/trip-card/trip-card.component';
 import { BookCabComponent } from './AppComponents/book-cab/book-cab.component';
 import { ProfileComponent } from './AppComponents/profile/profile.component';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './AppComponents/map/map.component';
 import { MyBookingsComponent } from './AppComponents/my-bookings/my-bookings.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -61,7 +60,6 @@ import { EmptyComponent } from './AppComponents/empty/empty.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    GoogleMapsModule,
     FullCalendarModule, 
     ToastrModule.forRoot({
       timeOut: 3000, 
