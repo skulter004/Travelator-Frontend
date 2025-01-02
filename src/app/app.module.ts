@@ -16,7 +16,6 @@ import { TripsComponent } from './AppComponents/trips/trips.component';
 import { TripCardComponent } from './AppComponents/trip-card/trip-card.component';
 import { BookCabComponent } from './AppComponents/book-cab/book-cab.component';
 import { ProfileComponent } from './AppComponents/profile/profile.component';
-import { MapComponent } from './AppComponents/map/map.component';
 import { MyBookingsComponent } from './AppComponents/my-bookings/my-bookings.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './AppComponents/calendar/calendar.component';
@@ -42,7 +41,6 @@ import { EmptyComponent } from './AppComponents/empty/empty.component';
     TripCardComponent,
     BookCabComponent,
     ProfileComponent,
-    MapComponent,
     MyBookingsComponent,
     CalendarComponent,
     TravelRequestComponent,
