@@ -46,7 +46,7 @@ const routes: Routes = [
     data: {roles: ['Admin', 'Manager', 'Director']}},
   { path : 'cabRequests', component: CabRequestsComponent},
   { path: '', redirectTo: 'auth/login', pathMatch: 'full'},
-  { path: '**', redirectTo: 'dasboard', pathMatch: 'full'}
+  { path: '**', redirectTo: 'auth/login', pathMatch: 'full'}
 ];
 
 @NgModule({
