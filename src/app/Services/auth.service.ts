@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:7034/api/Account'; 
+  private apiUrl = `${environment.baseUrl}/api/Account`; 
   private loggedIn = new BehaviorSubject<boolean>(false); 
   public loggedIn$ = this.loggedIn.asObservable();
 

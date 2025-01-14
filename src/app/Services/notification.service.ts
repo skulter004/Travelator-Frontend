@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class NotificationService {
 
   private startConnection() {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl('https://localhost:7034/notificationHub', {
+      .withUrl(`${environment.baseUrl}/notificationHub`, {
         accessTokenFactory: () => {
           return localStorage.getItem('token') || '';
         }
@@ -24,7 +25,7 @@ export class NotificationService {
 
     this.hubConnection
       .start()
-      .then(() => console.log('SignalR connection established'))
+      .then()
       .catch((err) => console.error('Error while establishing SignalR connection:', err));
   }
 

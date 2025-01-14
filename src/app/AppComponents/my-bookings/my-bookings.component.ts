@@ -15,7 +15,6 @@ export class MyBookingsComponent implements OnInit{
   ngOnInit() {
     this.cabServive.myBooking(new Date().toISOString()).subscribe((res:any) =>{
       this.bookings = res.booking;
-      console.log(res);      
     });
   }
 
@@ -23,7 +22,6 @@ export class MyBookingsComponent implements OnInit{
     this.date = date;
     this.cabServive.myBooking(date.toISOString()).subscribe((res:any) =>{
       this.bookings = res.booking;
-      console.log(res);      
     });
   }  
 }

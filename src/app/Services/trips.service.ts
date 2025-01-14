@@ -1,11 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripsService {
-  private apiUrl = 'https://localhost:7034/api/Trips'; 
+  private apiUrl = `${environment.baseUrl}/api/Trips`; 
   constructor(private http: HttpClient) { 
     const token = localStorage.getItem('token');
   }

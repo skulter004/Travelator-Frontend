@@ -25,14 +25,14 @@ const routes: Routes = [
       { path: '', redirectTo: 'login', pathMatch: 'full' }
     ]
   }, 
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]  }, 
-  { path: 'dashboard/addexpense', component: AddExpenseComponent, canActivate: [AuthGuard] }, 
-  { path: 'dashboard/travelrequest', component: TravelRequestComponent, canActivate: [AuthGuard] }, 
-  { path: 'expenses', component: ExpensesComponent, canActivate: [AuthGuard] },
-  { path: 'trips', component: TripsComponent , canActivate: [AuthGuard]}, 
-  { path: 'dashboard/bookcab', component: BookCabComponent , canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent}, 
+  { path: 'dashboard/addexpense', component: AddExpenseComponent}, 
+  { path: 'dashboard/travelrequest', component: TravelRequestComponent}, 
+  { path: 'expenses', component: ExpensesComponent},
+  { path: 'trips', component: TripsComponent}, 
+  { path: 'dashboard/bookcab', component: BookCabComponent},
   { path: 'profile', component: ProfileComponent , canActivate: [AuthGuard]}, 
-  { path: 'mybookings', component: MyBookingsComponent , canActivate: [AuthGuard]} ,
+  { path: 'mybookings', component: MyBookingsComponent} ,
   { path: 'requests', component: RequestsComponent,
     children: [
       { path: 'travel', component: TravelRequestsComponent},
@@ -44,8 +44,9 @@ const routes: Routes = [
     ]
      , canActivate: [AuthGuard],
     data: {roles: ['Admin', 'Manager', 'Director']}},
-  { path : 'cabRequests', component: CabRequestsComponent, canActivate: [AuthGuard]},
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full'}
+  { path : 'cabRequests', component: CabRequestsComponent},
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full'},
+  { path: '*', redirectTo: 'dasboard', pathMatch: 'full'}
 ];
 
 @NgModule({

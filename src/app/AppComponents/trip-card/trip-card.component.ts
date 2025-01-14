@@ -25,12 +25,10 @@ export class TripCardComponent implements OnInit, OnChanges {
   getTravelRequests(){    
     this.tripService.travelRequests(this.status).subscribe((res:any) =>{
       this.travelRequests = res.requests;
-      console.log(res.requests);      
     });
   }
   approveBooking(id: string, index:number){
     this.tripService.approveBooking(id).subscribe((res:any) =>{
-      console.log(res);      
       this.toastr.success(res.msg, 'success');
       this.travelRequests.splice(index,1);
     },
@@ -40,7 +38,6 @@ export class TripCardComponent implements OnInit, OnChanges {
   }
   directorApproval(id: string, index:number){
     this.tripService.directorApproval(id).subscribe((res:any) =>{
-      console.log(res);      
       this.toastr.warning(res.msg, 'Under review');
       this.travelRequests.splice(index,1);
     },

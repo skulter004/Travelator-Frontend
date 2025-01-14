@@ -20,19 +20,25 @@ export class LoginComponent {
   }
 
   Login() {
-    
-    this.authService.login(this.loginForm.value).subscribe(
-      (response: any) => {        
-        console.log(response);
-        localStorage.setItem('token', response.token);
-        this.router.navigate(["/profile"]);
-        this.authService.setLoginStatus(true);
-      },
-      error => {    
-        console.error('Login failed', error);
-        this.toastr.error('Login Failed', 'Error')
-        this.authService.setLoginStatus(false);
+    if(this.loginForm.valid){
+      this.authService.login(this.loginForm.value).subscribe(
+        (response: any) => {
+          localStorage.setItem('token', response.token);
+          this.router.navigate(["/profile"]);
+          this.authService.setLoginStatus(true);
+        },
+        error => {              
+          this.toastr.error(error.error.title, 'Error');
+          this.authService.setLoginStatus(false);
+        }
+      );
+    }else{
+      Object.keys(this.loginForm.controls).forEach(controlName => {
+      const controlErrors = this.loginForm.get(controlName)?.errors;
+      if (controlErrors) {
+        this.toastr.error(`Check ${controlName}`, `${controlName}`);
       }
-    );
+    });
+    }
   }
 }

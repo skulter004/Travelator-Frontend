@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CabBooking } from '../Models/CabBooking.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CabService {
-  private apiUrl = 'https://localhost:7034/api/Cabs'; 
+  private apiUrl = `${environment.baseUrl}/api/Cabs`; 
   constructor(private http: HttpClient) { }
 
   requestBooking(booking: any){

@@ -21,6 +21,5 @@ export class NavbarComponent {
     this.authService.loggedIn$.subscribe(status => {
       this.isLogged = status;
     });
-    console.log(this.isLogged);     
   }
 }

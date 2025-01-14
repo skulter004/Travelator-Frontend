@@ -23,18 +23,25 @@ export class SignupComponent {
   }
   
   Signup() {
-    this.authService.register(this.signUpForm.value).subscribe(
-      response => {
-        console.log('User registered', response);
-        this.router.navigate(['auth/login']);
-        this.authService.setLoginStatus(true);
-        localStorage.setItem('token', response.token);        
-      },
-      error => {
-        console.error('Registration failed', error);
-        this.toastr.error(error.error[0].description, 'Error');
-        this.authService.setLoginStatus(false);
-      }
-    );
+    if(this.signUpForm.valid){
+      this.authService.register(this.signUpForm.value).subscribe(
+        response => {
+          this.router.navigate(['auth/login']);
+          this.authService.setLoginStatus(true);
+          localStorage.setItem('token', response.token);        
+        },
+        error => {
+          this.toastr.error(error.error[0].code, 'Error');
+          this.authService.setLoginStatus(false);
+        }
+      );
+    }else{
+      Object.keys(this.signUpForm.controls).forEach(controlName => {
+        const controlErrors = this.signUpForm.get(controlName)?.errors;
+        if (controlErrors) {
+          this.toastr.error(`Check ${controlName}`, `${controlName}`);
+        }
+      });
+    }
   }
 }

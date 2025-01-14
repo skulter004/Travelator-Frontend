@@ -17,8 +17,6 @@ export class CalendarComponent {
       plugins: [dayGridPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
       events: [
-        { title: 'Event 1', date: '2024-10-15' }, 
-        { title: 'Event 2', date: '2024-11-20' }, 
       ],
       dateClick: (info:any) => this.handleDateClick(new Date(info.dateStr)), 
       eventClick: this.handleEventClick.bind(this),

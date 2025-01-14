@@ -23,7 +23,6 @@ export class BookCabComponent {
   requestBooking(){
     if(this.cabForm.valid){
       this.cabService.requestBooking(this.cabForm.value).subscribe(res =>{
-        console.log(res);       
         this.cabForm.reset();
         this.toastr.success('Cab Requested Succesfully', 'success')
       },

@@ -33,7 +33,6 @@ export class AssignCabComponent implements OnInit {
       monthlyRequest: false
     }
     this.cabService.approveBooking(booking).subscribe(res => {
-      console.log(res);      
       this.toastr.success('cab assigned succesfully', 'success');
       this.router.navigate(['requests/cab'])
     });
