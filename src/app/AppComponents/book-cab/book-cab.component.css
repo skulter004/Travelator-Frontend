@@ -15,4 +15,10 @@ form{
       font-size: small;
       font-weight: bold;
     }
+} 
+  @media(max-width:1000px){    
+  input, textarea, select, button{
+    width: fit-content!important;
+    padding: 10px!important;
+  }
 }

@@ -17,5 +17,8 @@
             <input type="checkbox" class="form-check-input" formControlName="monthlyRequest"> <div class=" ms-3 text-color fs-5">request monthly ride for this time and location</div>
         </div>
 
-        <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0" (click)="requestBooking()">Request Booking</button>
+        <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0" (click)="requestBooking()" [disabled]="loading">
+            <div *ngIf="loading" class="spinner-border spinner-border-sm text-light" role="status"></div>
+            <div *ngIf="!loading">Request Booking</div>            
+        </button>
 </div>

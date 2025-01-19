@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -14,10 +14,10 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false); 
   public loggedIn$ = this.loggedIn.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    this.loggedIn.next(!!token);
+    this.loggedIn.next(!token);
   }
 
   register(userData: any): Observable<any> {
@@ -59,4 +59,35 @@ export class AuthService {
     }
     return [];
   }
+
+  verifyEmail(): Promise<{ isVerified: boolean, isAlreadyVerified: boolean }> {
+    return new Promise((resolve, reject) => {
+      this.route.queryParams.subscribe((params: any) => {
+        const userId = params['userId'];
+        const token = params['token'];
+        const name = params['name'];
+        
+        console.log('Name:', name);
+        console.log('UserId:', userId);
+        console.log('Token:', token);
+        
+        this.http
+          .get(`${this.apiUrl}/confirm-email?userId=${userId}&name=${name}&token=${encodeURIComponent(token)}`)
+          .subscribe(
+            (res: any) => {
+              console.log('API Success:', res);
+              resolve({isVerified:true, isAlreadyVerified:false});
+            },
+            (err) => {
+              console.log('API Error:', err);
+              if(err.error == "Email already verified."){
+                resolve({isVerified:false, isAlreadyVerified:true}); 
+              }
+              resolve({isVerified:false, isAlreadyVerified:false}); 
+            }
+          );
+      });
+    });
+  }
+  
 }

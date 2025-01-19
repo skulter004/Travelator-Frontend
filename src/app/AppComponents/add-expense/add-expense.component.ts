@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-expense.component.css']
 })
 export class AddExpenseComponent {
-
+  loading: boolean = false;
   expenseForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {

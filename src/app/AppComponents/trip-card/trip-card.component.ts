@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { ToastrService } from 'ngx-toastr';
 import { TravelRequest } from 'src/app/Models/TravelRequest.model';
 import { TripsService } from 'src/app/Services/trips.service';
-
+import { EmptyComponent } from '../Shared/empty/empty.component';
 @Component({
   selector: 'app-trip-card',
   templateUrl: './trip-card.component.html',
@@ -11,6 +11,7 @@ import { TripsService } from 'src/app/Services/trips.service';
 export class TripCardComponent implements OnInit, OnChanges {
   @Input() status!: string;
   @Input() enableOption: boolean = false;
+  loading: boolean = false;
   travelRequests: TravelRequest[]  = [];
   constructor(private tripService: TripsService, private toastr: ToastrService){}
   ngOnInit() {
@@ -23,8 +24,10 @@ export class TripCardComponent implements OnInit, OnChanges {
     }
   }
   getTravelRequests(){    
+    this.loading = true;
     this.tripService.travelRequests(this.status).subscribe((res:any) =>{
       this.travelRequests = res.requests;
+      this.loading = false;
     });
   }
   approveBooking(id: string, index:number){

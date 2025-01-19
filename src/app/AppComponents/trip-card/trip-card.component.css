@@ -18,3 +18,22 @@
         background-color: greenyellow;        
     }
 }
+.loader{
+    min-height: 200px;
+    .spinner-border{
+        min-height: 50px;
+        min-width: 50px;
+    }
+}
+@media(max-width:934px){
+    .trip-card{
+        width: fit-content!important;
+        flex-direction: column!important;
+        grid-area: 10px!important;
+        align-items: start!important;
+        .applicant{
+            flex-direction: row!important;
+            gap: 10px!important;
+        }
+    }
+}

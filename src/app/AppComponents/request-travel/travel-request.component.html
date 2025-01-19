@@ -21,12 +21,14 @@
                     <label for="endDate" class="fw-medium fs-4 mb-3">To Date</label>
                     <input formControlName="endDate" class="rounded-4 form-control fs-4 p-4 mb-4 w-100" type="date" name="amount" id="" placeholder="$100">
                 </div>
-    
             </div>
             <label for="purpose" class="fw-medium fs-4">Travel Purpose</label>
             <textarea formControlName="purpose" class="rounded-4 form-control fs-4 p-4 mb-4 text-color"  placeholder="Purpose of travel">Purpose of travel
             </textarea>
         </form>    
-        <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0" (click)="requestTravel()">Submit</button>
+        <button class="btn btn-primary rounded-4 fs-4 w-50 p-3 m-5 ms-0" (click)="requestTravel()" [disabled]="loading">
+            <div *ngIf="loading" class="spinner-border spinner-border-sm text-light" role="status"></div>
+            <div *ngIf="!loading">Submit</div> 
+        </button>
         </div>
     </div>

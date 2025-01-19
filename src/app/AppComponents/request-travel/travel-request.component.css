@@ -16,3 +16,16 @@ form{
       font-weight: bold;
     } 
 }
+@media(max-width:1000px){    
+input, textarea, select, button{
+  width: 100%!important;
+  padding: 10px!important;
+}
+.date{
+  flex-direction: column!important;
+  width: 100%!important;
+  div{
+    width: 100%!important;
+  }
+}
+}

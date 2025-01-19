@@ -5,10 +5,17 @@
     flex-direction: column;
     overflow: hidden;
 }
-
+app-navbar{
+    z-index: 1000;
+}
 .sub-container {
     flex-grow: 1;
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
+}
+@media(max-width:934px){
+    .sub-container{
+        padding: 0!important;
+    }
 }

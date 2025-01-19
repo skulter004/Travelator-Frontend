@@ -48,3 +48,9 @@ form{
   .file-input {
     display: none;
   }
+  @media(max-width:1000px){    
+    input, textarea, select, button{
+      width: 100%!important;
+      padding: 10px!important;
+    }
+}

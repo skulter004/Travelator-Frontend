@@ -9,6 +9,7 @@ import { TripsService } from 'src/app/Services/trips.service';
   styleUrls: ['./travel-request.component.css']
 })
 export class TravelRequestComponent {
+  loading:boolean = false;
   travelForm!: FormGroup;
   
   constructor(private fb: FormBuilder, private tripsService: TripsService, private toastr: ToastrService) {
@@ -23,16 +24,20 @@ export class TravelRequestComponent {
   }
   requestTravel(){
     if(this.travelForm.valid){
+      this.loading = true;
       this.tripsService.requestTravel(this.travelForm.value).subscribe((res:any) =>{
         console.log(res);     
         this.travelForm.reset();   
         this.toastr.success(res.msg, 'success');
+        this.loading = false;
       },
     err =>{
       this.toastr.error("Failed to request travel", 'error');
+      this.loading = false;
     });
     }else{
       this.toastr.warning('Fill in valid details', 'warning');
+      this.loading = false;
     }
   }
 }
